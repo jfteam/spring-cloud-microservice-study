@@ -1,0 +1,27 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: microservice-provider-user
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: H2
+    properties:
+      schema: classpath:schema.sql
+      data: classpath:data.sql
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    org.jfteam.youran.persistence: ERROR
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery1.jfteam.org:8761/eureka/,http://discovery2.jfteam.org:8762/eureka/
+  instance:
+    prefer-ip-address: true

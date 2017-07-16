@@ -1,0 +1,29 @@
+---
+spring:
+  profiles: discovery1
+server:
+  #制定该Eureka实例的端口
+  port: 8761
+eureka:
+  instance:
+    hostname: discovery1
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://discovery1.jfteam.org:8761/eureka/,http://discovery2.jfteam.org:8762/eureka/  #将自己注册到discovery2上
+
+---
+spring:
+  profiles: discovery2
+server:
+  #制定该Eureka实例的端口
+  port: 8762
+eureka:
+  instance:
+    hostname: discovery2
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://discovery1.jfteam.org:8761/eureka/,http://discovery2.jfteam.org:8762/eureka/  #将自己注册到discovery1上

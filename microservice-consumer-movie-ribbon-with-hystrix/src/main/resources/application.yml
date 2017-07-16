@@ -1,0 +1,12 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-with-hystrix
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery1.jfteam.org:8761/eureka/,http://discovery2.jfteam.org:8762/eureka/
+  instance:
+    hostname: ribbon
+
